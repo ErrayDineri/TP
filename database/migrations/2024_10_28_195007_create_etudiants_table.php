@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('etudiants', function (Blueprint $table) {
             $table->id();
+            $table->String('nom');
+            $table->String('prenom');
+            $table->foreignId('classes_id')->constrainted('classes');
             $table->timestamps();
         });
     }
