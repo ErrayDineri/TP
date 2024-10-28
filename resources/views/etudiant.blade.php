@@ -25,9 +25,14 @@
             <td>{{$value->prenom}}</td>
             <td>{{$value->classe->libelle}}</td>
             <td>
-                <a href="{{route('etudiant.show', $value->id)}}" class="btn btn-info">Show</a>
-                <a href="{{route('etudiant.edit', $value->id)}}" class="btn btn-primary">Edit</a>
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <form action="{{ route('etudiant.delete',$value->id) }}" method="post">
+                    <a href="{{route('etudiant.show', $value->id)}}" class="btn btn-info">Show</a>
+                    <a href="{{route('etudiant.edit', $value->id)}}" class="btn btn-primary">Edit</a>
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes vous sur de vouloir effectuer cette opération');">Delete</button>
+                </form>
             </td>
         </tr>
         @endforeach
