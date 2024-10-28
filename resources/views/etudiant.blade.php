@@ -25,7 +25,7 @@
             <td>{{$value->prenom}}</td>
             <td>{{$value->classe->libelle}}</td>
             <td>
-                <a href="#" class="btn btn-info">Show</a>
+                <a href="{{route('etudiant.show', $value->id)}}" class="btn btn-info">Show</a>
                 <a href="{{route('etudiant.edit', $value->id)}}" class="btn btn-primary">Edit</a>
                 <button type="submit" class="btn btn-danger">Delete</button>
             </td>

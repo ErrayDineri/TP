@@ -51,4 +51,16 @@ class EtudiantController extends Controller
                     ->with('success','Student updated successfully');
     }
 
+    public function show(Etudiant $etudiant)
+    {
+        return view('show',compact('etudiant'));
+    }
+
+
+    public function delete(Etudiant $etudiant){
+        $etudiant-> delete();
+        return redirect()->route('etudiant')
+                        ->with('success','Post deleted successfully');
+    }
+
 }
